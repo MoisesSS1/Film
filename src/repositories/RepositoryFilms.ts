@@ -1,3 +1,5 @@
+
+import { DeleteFilmDTO } from "../useCases/Films/DeleteFilmUseCase/DeleteFilmDTO";
 import { InsertFilmDTO } from "../useCases/Films/InsertFilmUseCase/InsertFilmDTO";
 import { ShowFilmDTO } from "../useCases/Films/ShowFilmUseCase/ShowFilmDTO";
 import { IFilm } from "./IFilms";
@@ -24,7 +26,12 @@ export class repositoryFilms implements IFilm {
     }
 
 
-    async deleteFilm(id: string): Promise<any> {
+    async deleteFilm({ id }: DeleteFilmDTO): Promise<any> {
+
+        return {
+            id,
+            message: "Filme excluido!"
+        }
 
     }
 }
