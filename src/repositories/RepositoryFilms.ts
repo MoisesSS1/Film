@@ -2,6 +2,7 @@
 import { DeleteFilmDTO } from "../useCases/Films/DeleteFilmUseCase/DeleteFilmDTO";
 import { InsertFilmDTO } from "../useCases/Films/InsertFilmUseCase/InsertFilmDTO";
 import { ShowFilmDTO } from "../useCases/Films/ShowFilmUseCase/ShowFilmDTO";
+import { UpdateFilmDTO } from "../useCases/Films/UpdateFilmUseCase/UpdateFilmDTO";
 import { IFilm } from "./IFilms";
 
 export class repositoryFilms implements IFilm {
@@ -21,7 +22,11 @@ export class repositoryFilms implements IFilm {
         }
     }
 
-    async updateFilm({ }: {}): Promise<any> {
+    async updateFilm({ description, id, name }: UpdateFilmDTO): Promise<any> {
+
+        return {
+            description, id, name
+        }
 
     }
 

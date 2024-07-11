@@ -3,6 +3,7 @@ import { insertFilmUseController } from "./useCases/Films/InsertFilmUseCase"
 import { AuthRoutes } from "./middlewares/AuthRoutes"
 import { showFilmUseController } from "./useCases/Films/ShowFilmUseCase"
 import { deleteFilmUseController } from "./useCases/Films/DeleteFilmUseCase"
+import { updateFilmUseController } from "./useCases/Films/UpdateFilmUseCase"
 
 const routes = Router()
 
@@ -17,6 +18,10 @@ routes.get("/show", AuthRoutes, async (req, res) => {
 
 routes.post("/delete", AuthRoutes, async (req, res) => {
     return await deleteFilmUseController.handle(req, res)
+})
+
+routes.post("/update", AuthRoutes, async (req, res) => {
+    return await updateFilmUseController.handle(req, res)
 })
 
 
