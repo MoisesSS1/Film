@@ -1,4 +1,5 @@
 import { InsertFilmDTO } from "../useCases/Films/InsertFilmUseCase/InsertFilmDTO";
+import { ShowFilmDTO } from "../useCases/Films/ShowFilmUseCase/ShowFilmDTO";
 import { IFilm } from "./IFilms";
 
 export class repositoryFilms implements IFilm {
@@ -9,8 +10,13 @@ export class repositoryFilms implements IFilm {
 
     }
 
-    async getFilm(id: string): Promise<any> {
+    async getFilm({ id }: ShowFilmDTO): Promise<any> {
 
+        // se id for falso, retornar todos os documentos
+        return {
+            name: "name",
+            id: id
+        }
     }
 
     async updateFilm({ }: {}): Promise<any> {
